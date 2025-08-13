@@ -1,8 +1,7 @@
-import React from "react";
 
 export default function PrivacyPolicy() {
   const effectiveDate = "2025-07-01"; // update as needed
-  const supportEmail = "offerox.info@gmail.com"; // replace if needed
+  const supportEmail = "studyco.eduonline@gmail.com"; // replace if needed
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white p-6 md:p-12 font-sans text-gray-800">
