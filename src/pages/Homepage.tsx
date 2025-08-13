@@ -18,9 +18,13 @@ import {
   Shield,
   Linkedin,
 } from "lucide-react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 export default function Homepage() {
+
+  const [mobileMenuOpen,setMobileMenuOpen] = useState(false)
+
   return (
     <div
       className="min-h-screen"
@@ -35,7 +39,7 @@ export default function Homepage() {
             
             <div className="text-2xl font-bold text-gray-900">studyco.</div>
           </div>
-          <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-8">
             <Link to="#features" className="text-gray-700 hover:text-gray-900 transition-colors font-medium">
               Features
             </Link>
@@ -48,13 +52,52 @@ export default function Homepage() {
             <Button size="sm" className="bg-gray-900 hover:bg-black text-white">
               Get Started
             </Button>
-          </div>
+            </div>
+
+            {/* Mobile Menu Toggle */}
+            <div className="md:hidden">
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+              className="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+              <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              ) : (
+              <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              )}
+            </button>
+
+            {/* Mobile Menu */}
+            {mobileMenuOpen && (
+              <div className="absolute top-full left-0 right-0 p-4 bg-white/95 shadow-lg border-t border-gray-200 backdrop-blur-md z-50">
+              <div className="flex flex-col space-y-4">
+                <Link to="#features" className="text-gray-700 hover:text-gray-900 transition-colors font-medium py-2">
+                Features
+                </Link>
+                <Link to="#testimonials" className="text-gray-700 hover:text-gray-900 transition-colors font-medium py-2">
+                Reviews
+                </Link>
+                <Link to="#pricing" className="text-gray-700 hover:text-gray-900 transition-colors font-medium py-2">
+                Pricing
+                </Link>
+                <Button size="sm" className="bg-gray-900 hover:bg-black text-white w-full">
+                Get Started
+                </Button>
+              </div>
+              </div>
+            )}
+            </div>
         </nav>
       </header>
 
       {/* Hero Section */}
       <main className="container mx-auto px-4">
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-24 animate-fadeIn">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
            
@@ -275,7 +318,7 @@ export default function Homepage() {
                       <span className="text-gray-800 font-bold">M</span>
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">Midlaj M</div>
+                      <div className="font-semibold text-gray-900">Midlaj AM</div>
                       <div className="text-gray-700 text-sm">Engineering Student, MEA</div>
                     </div>
                   </div>
@@ -317,7 +360,7 @@ export default function Homepage() {
                   Ready to transform your learning journey?
                 </h2>
                 <p className="text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
-                  Join over 50,000 students who are already achieving their academic goals with Studyco. Start your free
+                  Join over 500 students who are already achieving their academic goals with Studyco. Start your free
                   trial today and experience the difference.
                 </p>
 
@@ -465,7 +508,7 @@ export default function Homepage() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-gray-900 transition-colors">
+                  <Link to="/privacy-policy" className="hover:text-gray-900 transition-colors">
                     Privacy
                   </Link>
                 </li>
@@ -474,7 +517,7 @@ export default function Homepage() {
           </div>
 
           <div className="border-t border-gray-300 pt-8 text-center text-gray-700">
-            <p>&copy; 2024 Studyco. All rights reserved. Empowering learners worldwide.</p>
+            <p>&copy; 2025 Studyco. All rights reserved. Empowering learners worldwide.</p>
           </div>
         </div>
       </footer>
