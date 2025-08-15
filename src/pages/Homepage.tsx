@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 // import { Badge } from "@/components/ui/badge"
 import {
   // Smartphone,
@@ -17,81 +17,123 @@ import {
   // Globe,
   Shield,
   Linkedin,
-} from "lucide-react"
-import { useState } from "react"
-import { Link } from "react-router-dom"
+} from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const [mobileMenuOpen,setMobileMenuOpen] = useState(false)
+  const [showWhatsapp, setShowWhatsapp] = useState(false);
 
   return (
     <div
       className="min-h-screen"
       style={{
-        background: "linear-gradient(135deg, #FDF9F0 0%, #F8F4E6 25%, #F5F0DC 50%, #F2EDD8 75%, #EFEBD4 100%)",
+        background:
+          "linear-gradient(135deg, #FDF9F0 0%, #F8F4E6 25%, #F5F0DC 50%, #F2EDD8 75%, #EFEBD4 100%)",
       }}
     >
       {/* Header */}
       <header className="container mx-auto px-4 py-6 sticky top-0 z-50 backdrop-blur-md bg-gradient-to-r from-[#FDF9F0]/90 to-[#F8F4E6]/90">
         <nav className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            
             <div className="text-2xl font-bold text-gray-900">studyco.</div>
           </div>
-            <div className="hidden md:flex items-center space-x-8">
-            <Link to="#features" className="text-gray-700 hover:text-gray-900 transition-colors font-medium">
+          <div className="hidden md:flex items-center space-x-8">
+            <Link
+              to="#features"
+              className="text-gray-700 hover:text-gray-900 transition-colors font-medium"
+            >
               Features
             </Link>
-            <Link to="#testimonials" className="text-gray-700 hover:text-gray-900 transition-colors font-medium">
+            <Link
+              to="#testimonials"
+              className="text-gray-700 hover:text-gray-900 transition-colors font-medium"
+            >
               Reviews
             </Link>
-            <Link to="#pricing" className="text-gray-700 hover:text-gray-900 transition-colors font-medium">
+            <Link
+              to="#pricing"
+              className="text-gray-700 hover:text-gray-900 transition-colors font-medium"
+            >
               Pricing
             </Link>
             <Button size="sm" className="bg-gray-900 hover:bg-black text-white">
               Get Started
             </Button>
-            </div>
+          </div>
 
-            {/* Mobile Menu Toggle */}
-            <div className="md:hidden">
-            <button 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+          {/* Mobile Menu Toggle */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
-              <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+                <svg
+                  className="w-6 h-6 text-gray-900"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
               ) : (
-              <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+                <svg
+                  className="w-6 h-6 text-gray-900"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
               )}
             </button>
 
             {/* Mobile Menu */}
             {mobileMenuOpen && (
               <div className="absolute top-full left-0 right-0 p-4 bg-white/95 shadow-lg border-t border-gray-200 backdrop-blur-md z-50">
-              <div className="flex flex-col space-y-4">
-                <Link to="#features" className="text-gray-700 hover:text-gray-900 transition-colors font-medium py-2">
-                Features
-                </Link>
-                <Link to="#testimonials" className="text-gray-700 hover:text-gray-900 transition-colors font-medium py-2">
-                Reviews
-                </Link>
-                <Link to="#pricing" className="text-gray-700 hover:text-gray-900 transition-colors font-medium py-2">
-                Pricing
-                </Link>
-                <Button size="sm" className="bg-gray-900 hover:bg-black text-white w-full">
-                Get Started
-                </Button>
-              </div>
+                <div className="flex flex-col space-y-4">
+                  <Link
+                    to="#features"
+                    className="text-gray-700 hover:text-gray-900 transition-colors font-medium py-2"
+                  >
+                    Features
+                  </Link>
+                  <Link
+                    to="#testimonials"
+                    className="text-gray-700 hover:text-gray-900 transition-colors font-medium py-2"
+                  >
+                    Reviews
+                  </Link>
+                  <Link
+                    to="#pricing"
+                    className="text-gray-700 hover:text-gray-900 transition-colors font-medium py-2"
+                  >
+                    Pricing
+                  </Link>
+                  <Button
+                    size="sm"
+                    className="bg-gray-900 hover:bg-black text-white w-full"
+                  >
+                    Get Started
+                  </Button>
+                </div>
               </div>
             )}
-            </div>
+          </div>
         </nav>
       </header>
 
@@ -100,8 +142,6 @@ export default function Homepage() {
         <section className="py-16 md:py-24 animate-fadeIn">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-           
-
               <h1 className="text-6xl md:text-8xl font-bold mb-8 text-gray-900 leading-tight">
                 Studyco.
                 <span className="block text-3xl md:text-4xl font-normal text-gray-700 mt-4">
@@ -110,29 +150,56 @@ export default function Homepage() {
               </h1>
 
               <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Transform your academic journey with our comprehensive study platform. Access curated resources, join a
-                thriving community, and achieve your educational goals with confidence.
+                Transform your academic journey with our comprehensive study
+                platform. Access curated resources, join a thriving community,
+                and achieve your educational goals with confidence.
               </p>
 
-              {/* <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                <Button
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+                <Button onClick={()=>setShowWhatsapp(true)}
                   size="lg"
                   className="bg-gradient-to-r from-[#9FFBB0] to-[#F7FF02] hover:from-[#8FEB9F] hover:to-[#E6EE01] text-gray-900 font-semibold px-10 py-4 text-lg border-0 shadow-xl hover:shadow-2xl transition-all"
                 >
-                  <Smartphone className="mr-2 h-5 w-5" />
-                  Download App
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Join Our WhatsApp Community
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
 
-                <Button
+                {/* <Button
                   variant="outline"
                   size="lg"
                   className="border-2 border-gray-900/30 hover:border-gray-900/50 text-gray-900 hover:text-gray-900 px-10 py-4 text-lg bg-white/70 hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all"
                 >
                   <Play className="mr-2 h-5 w-5" />
                   Watch Demo
-                </Button>
-              </div> */}
+                </Button> */}
+              </div>
+              {showWhatsapp && (
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center ">
+                  <Link to="https://chat.whatsapp.com/JzTo6l7LyxB7GkVvQoXDoC?mode=ac_t">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className=" border-2 border-gray-900/30 hover:border-gray-900/50 text-gray-900 hover:text-gray-900 px-10 py-4 text-lg bg-white/70 hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all"
+                    >
+                      <MessageCircle className="mr-2 h-5 w-5" />
+                      B.tech 1st Years
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                  <Link to="https://chat.whatsapp.com/Ebj5KtRhSQnAzNsy7o66TJ?mode=ac_t">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="border-2 border-gray-900/30 hover:border-gray-900/50 text-gray-900 hover:text-gray-900 px-10 py-4 text-lg bg-white/70 hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all"
+                    >
+                      <MessageCircle className="mr-2 h-5 w-5" />
+                      B.tech 2nd Years
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                </div>
+              )}
 
               {/* Stats */}
               {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
@@ -161,10 +228,13 @@ export default function Homepage() {
         <section id="features" className="py-20">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Everything you need to excel</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Everything you need to excel
+              </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                Our comprehensive platform combines cutting-edge technology with proven educational methods to deliver
-                an unparalleled learning experience.
+                Our comprehensive platform combines cutting-edge technology with
+                proven educational methods to deliver an unparalleled learning
+                experience.
               </p>
             </div>
 
@@ -174,10 +244,13 @@ export default function Homepage() {
                   <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-r from-[#9FFBB0] to-[#F7FF02] flex items-center justify-center shadow-lg">
                     <BookOpen className="h-8 w-8 text-gray-800" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Smart Study Materials</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Smart Study Materials
+                  </h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    AI-curated content tailored to your learning style and pace. Access thousands of practice questions,
-                    video lectures, and interactive exercises.
+                    AI-curated content tailored to your learning style and pace.
+                    Access thousands of practice questions, video lectures, and
+                    interactive exercises.
                   </p>
                   <div className="flex items-center text-gray-900 font-medium">
                     Learn more <ArrowRight className="ml-2 h-4 w-4" />
@@ -190,10 +263,13 @@ export default function Homepage() {
                   <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-r from-[#9FFBB0] to-[#F7FF02] flex items-center justify-center shadow-lg">
                     <Users className="h-8 w-8 text-gray-800" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Global Community</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Global Community
+                  </h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Connect with students worldwide. Join study groups, participate in discussions, and learn from peers
-                    who share your academic goals.
+                    Connect with students worldwide. Join study groups,
+                    participate in discussions, and learn from peers who share
+                    your academic goals.
                   </p>
                   <div className="flex items-center text-gray-900 font-medium">
                     Join community <ArrowRight className="ml-2 h-4 w-4" />
@@ -206,10 +282,13 @@ export default function Homepage() {
                   <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-r from-[#9FFBB0] to-[#F7FF02] flex items-center justify-center shadow-lg">
                     <TrendingUp className="h-8 w-8 text-gray-800" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Progress Analytics</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Progress Analytics
+                  </h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Track your learning journey with detailed analytics. Identify strengths, address weaknesses, and
-                    optimize your study strategy.
+                    Track your learning journey with detailed analytics.
+                    Identify strengths, address weaknesses, and optimize your
+                    study strategy.
                   </p>
                   <div className="flex items-center text-gray-900 font-medium">
                     View analytics <ArrowRight className="ml-2 h-4 w-4" />
@@ -222,10 +301,13 @@ export default function Homepage() {
                   <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-r from-[#9FFBB0] to-[#F7FF02] flex items-center justify-center shadow-lg">
                     <Clock className="h-8 w-8 text-gray-800" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Flexible Scheduling</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Flexible Scheduling
+                  </h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Study at your own pace with our adaptive scheduling system. Set goals, create routines, and never
-                    miss important deadlines.
+                    Study at your own pace with our adaptive scheduling system.
+                    Set goals, create routines, and never miss important
+                    deadlines.
                   </p>
                   <div className="flex items-center text-gray-900 font-medium">
                     Plan schedule <ArrowRight className="ml-2 h-4 w-4" />
@@ -238,10 +320,12 @@ export default function Homepage() {
                   <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-r from-[#9FFBB0] to-[#F7FF02] flex items-center justify-center shadow-lg">
                     <Award className="h-8 w-8 text-gray-800" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Expert Mentorship</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Expert Mentorship
+                  </h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Get guidance from industry experts and top educators. One-on-one sessions, group workshops, and
-                    career counseling.
+                    Get guidance from industry experts and top educators.
+                    One-on-one sessions, group workshops, and career counseling.
                   </p>
                   <div className="flex items-center text-gray-900 font-medium">
                     Find mentor <ArrowRight className="ml-2 h-4 w-4" />
@@ -254,10 +338,12 @@ export default function Homepage() {
                   <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-r from-[#9FFBB0] to-[#F7FF02] flex items-center justify-center shadow-lg">
                     <Shield className="h-8 w-8 text-gray-800" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Secure & Private</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Secure & Private
+                  </h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Your data is protected with enterprise-grade security. Focus on learning while we ensure your
-                    privacy and safety.
+                    Your data is protected with enterprise-grade security. Focus
+                    on learning while we ensure your privacy and safety.
                   </p>
                   <div className="flex items-center text-gray-900 font-medium">
                     Security details <ArrowRight className="ml-2 h-4 w-4" />
@@ -272,9 +358,12 @@ export default function Homepage() {
         <section id="testimonials" className="py-20">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Loved by students worldwide</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Loved by students worldwide
+              </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                Join thousands of successful students who have transformed their academic journey with Studyco.
+                Join thousands of successful students who have transformed their
+                academic journey with Studyco.
               </p>
             </div>
 
@@ -283,12 +372,16 @@ export default function Homepage() {
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                      <Star
+                        key={i}
+                        className="h-5 w-5 text-yellow-400 fill-current"
+                      />
                     ))}
                   </div>
                   <p className="text-gray-800 mb-6 leading-relaxed">
-                    "Studyco completely changed how I approach learning. The personalized study plans and community
-                    support helped me achieve my dream university admission."
+                    "Studyco completely changed how I approach learning. The
+                    personalized study plans and community support helped me
+                    achieve my dream university admission."
                   </p>
                   <div className="flex items-center">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#9FFBB0] to-[#F7FF02] flex items-center justify-center mr-4 shadow-lg">
@@ -296,7 +389,9 @@ export default function Homepage() {
                     </div>
                     <div>
                       <div className="font-semibold text-gray-900">Razi</div>
-                      <div className="text-gray-700 text-sm">CSE Student, MEA</div>
+                      <div className="text-gray-700 text-sm">
+                        CSE Student, MEA
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -306,20 +401,28 @@ export default function Homepage() {
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                      <Star
+                        key={i}
+                        className="h-5 w-5 text-yellow-400 fill-current"
+                      />
                     ))}
                   </div>
                   <p className="text-gray-800 mb-6 leading-relaxed">
-                    "The AI-powered recommendations and progress tracking are incredible. I improved my grades by 40% in
-                    just one semester using Studyco."
+                    "The AI-powered recommendations and progress tracking are
+                    incredible. I improved my grades by 40% in just one semester
+                    using Studyco."
                   </p>
                   <div className="flex items-center">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#9FFBB0] to-[#F7FF02] flex items-center justify-center mr-4 shadow-lg">
                       <span className="text-gray-800 font-bold">M</span>
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">Midlaj AM</div>
-                      <div className="text-gray-700 text-sm">Engineering Student, MEA</div>
+                      <div className="font-semibold text-gray-900">
+                        Midlaj AM
+                      </div>
+                      <div className="text-gray-700 text-sm">
+                        Engineering Student, MEA
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -329,20 +432,28 @@ export default function Homepage() {
                 <CardContent className="p-0">
                   <div className="flex items-center mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                      <Star
+                        key={i}
+                        className="h-5 w-5 text-yellow-400 fill-current"
+                      />
                     ))}
                   </div>
                   <p className="text-gray-800 mb-6 leading-relaxed">
-                    "The community aspect is amazing. I found study partners, got help with difficult concepts, and made
-                    lifelong friends. Highly recommend!"
+                    "The community aspect is amazing. I found study partners,
+                    got help with difficult concepts, and made lifelong friends.
+                    Highly recommend!"
                   </p>
                   <div className="flex items-center">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#9FFBB0] to-[#F7FF02] flex items-center justify-center mr-4 shadow-lg">
                       <span className="text-gray-800 font-bold">L</span>
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">Lina Rahiman</div>
-                      <div className="text-gray-700 text-sm">Engineering Student, MEA</div>
+                      <div className="font-semibold text-gray-900">
+                        Lina Rahiman
+                      </div>
+                      <div className="text-gray-700 text-sm">
+                        Engineering Student, MEA
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -360,8 +471,9 @@ export default function Homepage() {
                   Ready to transform your learning journey?
                 </h2>
                 <p className="text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
-                  Join over 500 students who are already achieving their academic goals with Studyco. Start your free
-                  trial today and experience the difference.
+                  Join over 500 students who are already achieving their
+                  academic goals with Studyco. Start your free trial today and
+                  experience the difference.
                 </p>
 
                 {/* <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
@@ -418,20 +530,29 @@ export default function Homepage() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-               
                 <div className="text-2xl font-bold text-gray-900">studyco.</div>
               </div>
               <p className="text-gray-700 mb-4">
-                Empowering students worldwide with innovative learning solutions and community support.
+                Empowering students worldwide with innovative learning solutions
+                and community support.
               </p>
               <div className="flex space-x-4">
-                <Link to="https://www.linkedin.com/in/studyco-learning-a04345369?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="text-gray-700 hover:text-gray-900 transition-colors">
+                <Link
+                  to="https://www.linkedin.com/in/studyco-learning-a04345369?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                  className="text-gray-700 hover:text-gray-900 transition-colors"
+                >
                   <Linkedin className="h-5 w-5" />
                 </Link>
-                <Link to="https://www.instagram.com/studyco_btech?igsh=YTBrdTZuYWUxcGp6" className="text-gray-700 hover:text-gray-900 transition-colors">
+                <Link
+                  to="https://www.instagram.com/studyco_btech?igsh=YTBrdTZuYWUxcGp6"
+                  className="text-gray-700 hover:text-gray-900 transition-colors"
+                >
                   <Instagram className="h-5 w-5" />
                 </Link>
-                <Link to="https://chat.whatsapp.com/Ebj5KtRhSQnAzNsy7o66TJ?mode=ac_t" className="text-gray-700 hover:text-gray-900 transition-colors">
+                <Link
+                  to="https://chat.whatsapp.com/Ebj5KtRhSQnAzNsy7o66TJ?mode=ac_t"
+                  className="text-gray-700 hover:text-gray-900 transition-colors"
+                >
                   <MessageCircle className="h-5 w-5" />
                 </Link>
               </div>
@@ -441,22 +562,34 @@ export default function Homepage() {
               <h4 className="font-semibold text-gray-900 mb-4">Product</h4>
               <ul className="space-y-2 text-gray-700">
                 <li>
-                  <Link to="#" className="hover:text-gray-900 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-gray-900 transition-colors"
+                  >
                     Features
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-gray-900 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-gray-900 transition-colors"
+                  >
                     Pricing
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-gray-900 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-gray-900 transition-colors"
+                  >
                     Mobile App
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-gray-900 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-gray-900 transition-colors"
+                  >
                     Integrations
                   </Link>
                 </li>
@@ -467,22 +600,34 @@ export default function Homepage() {
               <h4 className="font-semibold text-gray-900 mb-4">Support</h4>
               <ul className="space-y-2 text-gray-700">
                 <li>
-                  <Link to="#" className="hover:text-gray-900 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-gray-900 transition-colors"
+                  >
                     Help Center
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-gray-900 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-gray-900 transition-colors"
+                  >
                     Contact Us
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-gray-900 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-gray-900 transition-colors"
+                  >
                     Community
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-gray-900 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-gray-900 transition-colors"
+                  >
                     Status
                   </Link>
                 </li>
@@ -493,22 +638,34 @@ export default function Homepage() {
               <h4 className="font-semibold text-gray-900 mb-4">Company</h4>
               <ul className="space-y-2 text-gray-700">
                 <li>
-                  <Link to="#" className="hover:text-gray-900 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-gray-900 transition-colors"
+                  >
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-gray-900 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-gray-900 transition-colors"
+                  >
                     Blog
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="hover:text-gray-900 transition-colors">
+                  <Link
+                    to="#"
+                    className="hover:text-gray-900 transition-colors"
+                  >
                     Careers
                   </Link>
                 </li>
                 <li>
-                  <Link to="/privacy-policy" className="hover:text-gray-900 transition-colors">
+                  <Link
+                    to="/privacy-policy"
+                    className="hover:text-gray-900 transition-colors"
+                  >
                     Privacy
                   </Link>
                 </li>
@@ -517,10 +674,13 @@ export default function Homepage() {
           </div>
 
           <div className="border-t border-gray-300 pt-8 text-center text-gray-700">
-            <p>&copy; 2025 Studyco. All rights reserved. Empowering learners worldwide.</p>
+            <p>
+              &copy; 2025 Studyco. All rights reserved. Empowering learners
+              worldwide.
+            </p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
