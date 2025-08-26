@@ -601,7 +601,7 @@ export default function Homepage() {
               <ul className="space-y-2 text-gray-700">
                 <li>
                   <Link
-                    to="#"
+                    to="/help"
                     className="hover:text-gray-900 transition-colors"
                   >
                     Help Center
@@ -609,7 +609,7 @@ export default function Homepage() {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/contact-us"
                     className="hover:text-gray-900 transition-colors"
                   >
                     Contact Us
