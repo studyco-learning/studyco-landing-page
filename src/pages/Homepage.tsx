@@ -2,11 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 // import { Badge } from "@/components/ui/badge"
 import {
-  // Smartphone,
+  Smartphone,
   MessageCircle,
   // Send,
   Instagram,
   Users,
+  Play,
   BookOpen,
   Star,
   TrendingUp,
@@ -17,6 +18,7 @@ import {
   // Globe,
   Shield,
   Linkedin,
+  Apple,
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -59,9 +61,14 @@ export default function Homepage() {
             >
               Pricing
             </Link>
-            <Button size="sm" className="bg-gray-900 hover:bg-black text-white">
-              Get Started
-            </Button>
+            <Link to="https://play.google.com/store/apps/details?id=com.studyco.online">
+              <Button
+                size="sm"
+                className="bg-gray-900 hover:bg-black text-white"
+              >
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -156,23 +163,26 @@ export default function Homepage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
-                <Button onClick={()=>setShowWhatsapp(true)}
+                <Button
+                  onClick={() => setShowWhatsapp(true)}
                   size="lg"
                   className="bg-gradient-to-r from-[#9FFBB0] to-[#F7FF02] hover:from-[#8FEB9F] hover:to-[#E6EE01] text-gray-900 font-semibold px-10 py-4 text-lg border-0 shadow-xl hover:shadow-2xl transition-all"
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Join Our WhatsApp Community
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  {/* <ArrowRight className="ml-2 h-5 w-5" /> */}
                 </Button>
-
-                {/* <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-gray-900/30 hover:border-gray-900/50 text-gray-900 hover:text-gray-900 px-10 py-4 text-lg bg-white/70 hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all"
-                >
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch Demo
-                </Button> */}
+                <Link to="https://play.google.com/store/apps/details?id=com.studyco.online">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-2 border-gray-900/30 hover:border-gray-900/50 text-gray-900 hover:text-gray-900 px-10 py-4 text-lg bg-white/70 hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all"
+                  >
+                    <Play className="mr-2 h-5 w-5" />
+                    Download the App
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
               </div>
               {showWhatsapp && (
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center ">
@@ -476,7 +486,7 @@ export default function Homepage() {
                   experience the difference.
                 </p>
 
-                {/* <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
                   <Button
                     size="lg"
                     className="bg-gradient-to-r from-[#9FFBB0] to-[#F7FF02] hover:from-[#8FEB9F] hover:to-[#E6EE01] text-gray-900 font-semibold px-12 py-4 text-xl border-0 shadow-xl hover:shadow-2xl transition-all"
@@ -488,12 +498,12 @@ export default function Homepage() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-12 py-4 text-xl bg-white/70 shadow-xl hover:shadow-2xl transition-all"
+                    className="border-1 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-12 py-4 text-xl bg-white/70 shadow-xl hover:shadow-2xl transition-all"
                   >
-                    <MessageCircle className="mr-2 h-6 w-6" />
-                    Join WhatsApp Channel
+                    <Apple className="mr-2 h-6 w-6" />
+                    Download on App Store
                   </Button>
-                </div> */}
+                </div>
 
                 <div className="flex justify-center space-x-6">
                   <Link
@@ -579,7 +589,7 @@ export default function Homepage() {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="https://play.google.com/store/apps/details?id=com.studyco.online"
                     className="hover:text-gray-900 transition-colors"
                   >
                     Mobile App

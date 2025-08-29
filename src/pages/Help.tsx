@@ -12,15 +12,14 @@ import {
   CreditCard,
   Settings,
   CheckCircle,
-  ExternalLink,
   Lightbulb,
   ArrowRight,
 } from "lucide-react";
 
 export default function Help() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [expandedFaq, setExpandedFaq] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const supportEmail = "studyco.eduonline@gmail.com";
   const supportPhone = "+91 70259 77832";
 
@@ -162,7 +161,7 @@ export default function Help() {
     return matchesCategory && matchesSearch;
   });
 
-  const toggleFaq = (faqId) => {
+  const toggleFaq = (faqId: number) => {
     setExpandedFaq(expandedFaq === faqId ? null : faqId);
   };
 
@@ -383,20 +382,22 @@ export default function Help() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a
-                    href={`mailto:${supportEmail}`}
-                    className="bg-gray-800 text-white px-8 py-3 rounded-xl hover:bg-gray-900 transition-colors flex items-center justify-center space-x-2"
-                  >
-                    <Mail className="w-5 h-5" />
-                    <span>Email Support</span>
-                  </a>
-                  <a
-                    href={`tel:${supportPhone}`}
-                    className="bg-white text-gray-800 border border-gray-900 px-8 py-3 rounded-xl hover:bg-gray-100 transition-colors flex items-center justify-center space-x-2"
-                  >
-                    <Phone className="w-5 h-5" />
-                    <span>Call Support</span>
-                  </a>
+                <a
+                  href={`mailto:${supportEmail}`}
+                  className="bg-gray-800 text-white px-8 py-3 rounded-xl hover:bg-gray-900 transition-colors flex items-center justify-center space-x-2"
+                  aria-label="Email Support"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span>Email Support</span>
+                </a>
+                <a
+                  href={`tel:${supportPhone}`}
+                  className="bg-white text-gray-800 border border-gray-900 px-8 py-3 rounded-xl hover:bg-gray-100 transition-colors flex items-center justify-center space-x-2"
+                  aria-label="Call Support"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>Call Support</span>
+                </a>
                 </div>
 
                 <p className="text-gray-600 text-sm mt-4">
